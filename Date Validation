@@ -1,0 +1,26 @@
+def validateDate(string_date): # Validates that date is in correct format DD/MM/YYYY
+    try:
+        datetime.datetime.strptime(string_date, '%d/%m/%Y')
+        print("date format all good")
+        return True
+    except ValueError:
+        print("INVALID date: Incorrect date format, should be DD/MM/YYYY")
+        return False
+
+
+
+
+
+def numdays_dates(DOB_textbox): # Calculates Age from DOB from entered date of birth to todays date.
+#
+	from datetime import datetime
+	today = date.today() # Gets todays date.
+
+	start = datetime.strptime(DOB_textbox, "%d/%m/%Y")
+	# get the difference between two dates as timedelta object
+	diff = today - start.date()
+	print('Difference between dates in days:')
+	print(diff.days)      # negative means date1 is after date 2
+	x = diff.days
+	age = x/365.25
+	return age
